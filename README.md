@@ -1,105 +1,147 @@
-# 🌐 WebScraping-DB  
-**End-to-end Web Scraping • Data Extraction • Database Ingestion**
+<h1 align="center">🕸️ WebScraping-DB</h1>
 
-## 📘 Overview  
-WebScraping-DB is a full-cycle data project that goes beyond simple web scraping:  
-- It **extracts structured data from the web**,  
-- **Transforms and cleans** that data,  
-- **Loads** it into a relational or non-relational database, and  
-- **Makes it accessible** for further analysis or applications.  
-This project demonstrates your ability to build data pipelines, work with real-world data, and integrate front-end/back-end components.
+<p align="center">
+  <b>Automated Web Scraper and Database Integration</b><br>
+  <i>Built with Python to collect, process, and store structured data efficiently.</i>
+</p>
 
----
-
-## 🚀 Core Features  
-- 🕷️ **Web Scraping Module** — crawl target websites, parse HTML/CSS/JSON, extract meaningful data points.  
-- 🔄 **Data Transformation** — clean, normalize and deduplicate the scraped data; prepare for database insertion.  
-- 🗄️ **Database Integration** — insert, update and manage data in a database (SQL or NoSQL) for persistence and querying.  
-- 📊 **Data Access Interface** — simple API or query interface to retrieve stored data for reporting or applications.  
-- 📈 **Pipeline Automation** — schedule or trigger tasks, log successes/errors, manage workflow.  
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.10%2B-blue?style=for-the-badge&logo=python&logoColor=white" />
+  <img src="https://img.shields.io/badge/BeautifulSoup-Used-green?style=for-the-badge&logo=html5&logoColor=white" />
+  <img src="https://img.shields.io/badge/SQLite-Database-orange?style=for-the-badge&logo=sqlite&logoColor=white" />
+</p>
 
 ---
 
-## 🧰 Technologies Used  
-- **Python / JavaScript** (or specific language used) — for the scraping and logic layer.  
-- **BeautifulSoup / Selenium / Puppeteer** (or whichever) — tools for DOM extraction and automation.  
-- **Pandas / custom scripts** — for data cleaning and transformation.  
-- **MySQL / PostgreSQL / MongoDB** — database layer where data is stored and indexed.  
-- **REST API / Flask / Express** (optional) — for exposing the data to other systems or front-end.  
-- **GitHub + Documentation** — solid code management, README, modular structure.  
+<h2>📖 Overview</h2>
+
+<p>
+  <b>WebScraping-DB</b> is a Python-based project that automates the extraction of information from websites 
+  and stores it directly in a local or remote database.  
+  It’s designed for developers and data analysts who need a quick, reusable solution for scraping data 
+  from HTML pages and managing it efficiently.
+</p>
 
 ---
 
-## 📁 Project Structure  
-```bash
+<h2>⚙️ Features</h2>
+
+<ul>
+  <li>🌐 Extracts data automatically from target websites using <b>BeautifulSoup</b>.</li>
+  <li>🧠 Cleans, parses, and structures scraped information.</li>
+  <li>💾 Saves all extracted data into a <b>SQLite</b> database (or any SQL-based system).</li>
+  <li>📂 Modular Python code for easy modification and scaling.</li>
+  <li>🕒 Supports scheduling for periodic scraping and updates.</li>
+</ul>
+
+---
+
+<h2>🧩 Project Structure</h2>
+
+<pre>
 WebScraping-DB/
-├── scraper/               # Web crawling & parsing logic  
-│   ├── main_scraper.py    # Entry script: orchestrates scraping tasks  
-│   ├── parsers.py         # Site-specific parsing functions  
-│   └── utils.py           # HTTP requests, retry logic, logging  
-├── transform/             # Data cleaning & transformation  
-│   └── clean_data.py      # Scripts to normalize and validate data  
-├── db/                    # Database integration & models  
-│   ├── models.py          # Schema definitions  
-│   └── loader.py          # Ingestion logic into DB  
-├── api/                   # (Optional) Data access layer  
-│   └── app.py             # REST endpoints for retrieving stored data  
-├── configs/               # Configuration files (DB creds, scraping settings)  
-├── logs/                  # Logs and run-history  
-└── README.md              # Documentation (this file)  
-```
-⚙️ How to Run
-```
-1. Setup environment
-bash
-Copiar código
-git clone https://github.com/ManuCodello/WebScraping-DB.git
-cd WebScraping-DB
-pip install -r requirements.txt   # Or npm/yarn if JS
-2. Configure settings
-Edit configs/settings.json (or equivalent) to set:
-```
-Target website URLs
+├── main.py               # Entry point of the scraper
+├── scraper.py            # Core logic for web data extraction
+├── database.py           # Database connection and operations
+├── requirements.txt      # Dependencies list
+└── README.html           # Project documentation
+</pre>
 
-Database connection details
+---
 
-Scheduling or batch size parameters
+<h2>🚀 Installation</h2>
 
-3. Scrape & Load
-bash
-Copiar código
-python scraper/main_scraper.py   # initiates scraping  
-python db/loader.py              # loads data into DB  
-4. Access Data
-If API component is included:
+<ol>
+  <li>Clone this repository:</li>
 
-bash
-Copiar código
-python api/app.py                # starts server  
-# then open http://localhost:5000/data or similar  
-🧠 What You’ll Learn
-How to build a robust data pipeline: scrape → clean → store → serve.
+  <pre><code>git clone https://github.com/ManuCodello/WebScraping-DB.git</code></pre>
 
-Handling web scraping challenges: pagination, rate-limits, CAPTCHAs (if applicable).
+  <li>Navigate to the project directory:</li>
 
-Working with databases at scale: schema design, indexing, deduplication.
+  <pre><code>cd WebScraping-DB</code></pre>
 
-Exposing data via APIs to make applications consume it.
+  <li>Install the required dependencies:</li>
 
-Code organization and modular architecture — great for real-world engineering roles.
+  <pre><code>pip install -r requirements.txt</code></pre>
 
-🚧 Next Steps & Enhancements
-Add headless browser automation (Selenium/Puppeteer) to handle JavaScript-rich sites.
+  <li>Run the scraper:</li>
 
-Implement incremental scraping and change detection to update only new data.
+  <pre><code>python main.py</code></pre>
+</ol>
 
-Use cloud functions or cron jobs for scheduling scraping jobs.
+---
 
-Build dashboard/visualization layer to display the scraped data insights.
+<h2>🧠 How It Works</h2>
 
-Add unit and integration tests for scraping logic, loader logic, and API endpoints.
+<ol>
+  <li>The program sends HTTP requests to target URLs.</li>
+  <li>It uses <b>BeautifulSoup</b> to parse and extract the relevant data (titles, links, prices, etc.).</li>
+  <li>The extracted data is cleaned and formatted.</li>
+  <li>Finally, it’s inserted into a <b>SQLite</b> database using <b>database.py</b>.</li>
+</ol>
 
-👤 Author
-Manu Codello
-🎓 Computer Science Student – Universidad Nacional de Asunción
-💡 Focused on data engineering, web automation, and building production-ready pipelines.
+<p>
+  Example database schema:
+</p>
+
+<pre>
+TABLE scraped_data (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    title TEXT,
+    url TEXT,
+    date_scraped TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+</pre>
+
+---
+
+<h2>🧰 Technologies Used</h2>
+
+<ul>
+  <li><b>Python 3.10+</b></li>
+  <li><b>BeautifulSoup4</b> — for HTML parsing</li>
+  <li><b>Requests</b> — for HTTP requests</li>
+  <li><b>SQLite3</b> — for lightweight database storage</li>
+  <li><b>Pandas</b> (optional) — for data processing</li>
+</ul>
+
+---
+
+<h2>📊 Example Output</h2>
+
+<pre>
+| ID | Title                   | URL                          | Date Scraped         |
+|----|--------------------------|------------------------------|----------------------|
+| 1  | Example Article 1        | https://example.com/article1  | 2025-11-04 10:00:00 |
+| 2  | Example Article 2        | https://example.com/article2  | 2025-11-04 10:05:00 |
+</pre>
+
+---
+
+<h2>🌱 Future Improvements</h2>
+
+<ul>
+  <li>Add support for <b>multiple concurrent scrapes</b> (async requests).</li>
+  <li>Integrate <b>PostgreSQL</b> or <b>MySQL</b> as database backends.</li>
+  <li>Develop a simple web interface to visualize data.</li>
+  <li>Implement <b>data validation</b> and <b>error logging</b> features.</li>
+</ul>
+
+---
+
+<h2>👤 Author</h2>
+
+<p>
+  Created with 💻 and ☕ by <a href="https://github.com/ManuCodello">ManuCodello</a>  
+  <br>
+  <i>Focused on automation, data engineering, and smart software design.</i>
+</p>
+
+---
+
+<h2>📜 License</h2>
+
+<p>
+  This project is licensed under the <b>MIT License</b> — feel free to use, modify, and share it responsibly.
+</p>
+
